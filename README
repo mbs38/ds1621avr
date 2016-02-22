@@ -1,0 +1,10 @@
+AVR library to get readings from up to 8 of Maxim Integrated's DS1621 TWI temperature sensors. The DS1621 can only perform about 2 conversions per second, therefore it seemed to be a good idea to assign the TWI communication with a pretty low priority within the AVR. I decided to use interrupt flag polling rather than ISRs which is only possible because the AVR is the master device on the TWI bus. The library is hot-plug capable and adding or removing sensors from the bus is possible at all times. The library does not contain any hazardous while loops that wait for some external signal to arrive, like many other TWI libraries do.
+
+
+Features:
+now includes a usage example
+supports hot-plugging
+supports up to 8 sensors
+reads count_remain and slope registers for higher accuracy
+supports negative temperature values
+uses the AVR's hardware TWI-interface
